@@ -29,8 +29,9 @@ dependencies {
     compile group: 'org.projectlombok', name: 'lombok', version: '1.18.10'
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.6'
+wrapper {
+    gradleVersion = '5.4.1'
+    distributionUrl = distributionUrl.replace("bin", "all")
 }
 
 task stage(type: Copy, dependsOn: [clean, build]) {
