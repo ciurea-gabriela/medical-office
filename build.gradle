@@ -19,7 +19,7 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql'
 
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.1.7.RELEASE'
-    
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testCompile group: 'com.h2database', name: 'h2', version: '1.4.199'
     compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.9'
@@ -42,7 +42,8 @@ task stage(type: Copy, dependsOn: [clean, build]) {
     }
 }
 stage.mustRunAfter(clean)
-
-clean << {
-    project.file('app.jar').delete()
+clean {
+    doLast {
+        project.file('app.jar').delete()
+    }
 }
