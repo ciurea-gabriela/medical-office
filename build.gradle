@@ -26,7 +26,8 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
 
-    compile group: 'org.projectlombok', name: 'lombok', version: '1.18.10'
+    compileOnly 'org.projectlombok:lombok:1.18.10'
+    annotationProcessor 'org.projectlombok:lombok:1.18.10'
 }
 
 gradle.taskGraph.whenReady {
