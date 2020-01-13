@@ -29,5 +29,12 @@ dependencies {
     compile group: 'org.projectlombok', name: 'lombok', version: '1.18.10'
 }
 
+gradle.taskGraph.whenReady {
+    taskGraph ->
+        if (taskGraph.hasTask(stage)) {
+            test.enabled = false
+        }
+}
+
 task stage(dependsOn: ['build', 'clean'])
 build.mustRunAfter clean
