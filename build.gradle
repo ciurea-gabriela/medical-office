@@ -16,14 +16,14 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.1.7.RELEASE'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
     runtimeOnly 'org.postgresql:postgresql'
 
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.1.7.RELEASE'
-
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testCompile group: 'com.h2database', name: 'h2', version: '1.4.199'
     compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.9'
 
+    testCompile group: 'com.h2database', name: 'h2', version: '1.4.199'
     testCompile 'junit:junit:4.12'
 
     compileOnly 'org.projectlombok:lombok:1.18.10'
@@ -32,3 +32,7 @@ dependencies {
 
 task stage(dependsOn: ['build', 'clean'])
 build.mustRunAfter clean
+
+test {
+    exclude 'com/kronsoft/medicaloffice/**'
+}
