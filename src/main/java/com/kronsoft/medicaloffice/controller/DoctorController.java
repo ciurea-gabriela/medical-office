@@ -10,6 +10,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@CrossOrigin("https://app-medical-office.herokuapp.com")
 public class DoctorController {
   private DoctorService doctorService;
 
