@@ -44,7 +44,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .permitAll()
         .antMatchers("/*")
         .permitAll()
-        .anyRequest();
+        .anyRequest()
+        .permitAll();
   }
 
   @Bean
