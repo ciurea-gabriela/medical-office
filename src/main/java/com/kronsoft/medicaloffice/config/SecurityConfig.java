@@ -42,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/**/*.css",
             "/**/*.js")
         .permitAll()
-        .antMatchers("/*")
+        .antMatchers("/**")
         .permitAll()
         .anyRequest()
         .permitAll();
